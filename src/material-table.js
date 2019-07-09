@@ -102,7 +102,7 @@ export default class MaterialTable extends React.Component {
     calculatedProps.actions = [...(calculatedProps.actions || [])];
     if (calculatedProps.editable) {
       if (calculatedProps.editable.onRowAdd) {
-        calculatedProps.actions.push({
+        calculatedProps.actions.unshift({
           icon: calculatedProps.icons.Add,
           tooltip: localization.addTooltip,
           isFreeAction: true,
@@ -116,7 +116,7 @@ export default class MaterialTable extends React.Component {
         });
       }
       if (calculatedProps.editable.onRowUpdate) {
-        calculatedProps.actions.push(rowData => ({
+        calculatedProps.actions.unshift(rowData => ({
           icon: calculatedProps.icons.Edit,
           tooltip: localization.editTooltip,
           disabled: calculatedProps.editable.isEditable && !calculatedProps.editable.isEditable(rowData),
@@ -130,7 +130,7 @@ export default class MaterialTable extends React.Component {
         }));
       }
       if (calculatedProps.editable.onRowDelete) {
-        calculatedProps.actions.push(rowData => ({
+        calculatedProps.actions.unshift(rowData => ({
           icon: calculatedProps.icons.Delete,
           tooltip: localization.deleteTooltip,
           disabled: calculatedProps.editable.isDeletable && !calculatedProps.editable.isDeletable(rowData),
