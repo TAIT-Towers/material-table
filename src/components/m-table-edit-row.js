@@ -44,12 +44,12 @@ export default class MTableEditRow extends React.Component {
             allowEditing = columnDef.editable(columnDef, this.props.data);
         }
         if (!columnDef.field || !allowEditing) {
-          const readonlyValue = this.props.getFieldValue(this.state.data, columnDef);
+          //const readonlyValue = this.props.getFieldValue(this.state.data, columnDef);
           return (
             <this.props.components.Cell
               icons={this.props.icons}
               columnDef={columnDef}
-              value={readonlyValue}
+              value={value}
               key={columnDef.tableData.id}
               rowData={this.props.data}
             />
