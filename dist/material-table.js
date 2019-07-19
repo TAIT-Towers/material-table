@@ -459,24 +459,6 @@ function (_React$Component) {
           });
         }
 
-        if (calculatedProps.editable.onRowUpdate) {
-          calculatedProps.actions.unshift(function (rowData) {
-            return {
-              icon: calculatedProps.icons.Edit,
-              tooltip: localization.editTooltip,
-              hidden: calculatedProps.editable.isEditableHidden && calculatedProps.editable.isEditableHidden(rowData),
-              disabled: calculatedProps.editable.isEditable && !calculatedProps.editable.isEditable(rowData),
-              onClick: function onClick(e, rowData) {
-                _this3.dataManager.changeRowEditing(rowData, "update");
-
-                _this3.setState((0, _objectSpread2["default"])({}, _this3.dataManager.getRenderState(), {
-                  showAddRow: false
-                }));
-              }
-            };
-          });
-        }
-
         if (calculatedProps.editable.onRowDelete) {
           calculatedProps.actions.unshift(function (rowData) {
             return {
@@ -486,6 +468,24 @@ function (_React$Component) {
               disabled: calculatedProps.editable.isDeletable && !calculatedProps.editable.isDeletable(rowData),
               onClick: function onClick(e, rowData) {
                 _this3.dataManager.changeRowEditing(rowData, "delete");
+
+                _this3.setState((0, _objectSpread2["default"])({}, _this3.dataManager.getRenderState(), {
+                  showAddRow: false
+                }));
+              }
+            };
+          });
+        }
+
+        if (calculatedProps.editable.onRowUpdate) {
+          calculatedProps.actions.unshift(function (rowData) {
+            return {
+              icon: calculatedProps.icons.Edit,
+              tooltip: localization.editTooltip,
+              hidden: calculatedProps.editable.isEditableHidden && calculatedProps.editable.isEditableHidden(rowData),
+              disabled: calculatedProps.editable.isEditable && !calculatedProps.editable.isEditable(rowData),
+              onClick: function onClick(e, rowData) {
+                _this3.dataManager.changeRowEditing(rowData, "update");
 
                 _this3.setState((0, _objectSpread2["default"])({}, _this3.dataManager.getRenderState(), {
                   showAddRow: false
