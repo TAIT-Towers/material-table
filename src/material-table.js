@@ -115,21 +115,6 @@ export default class MaterialTable extends React.Component {
           }
         });
       }
-      if (calculatedProps.editable.onRowUpdate) {
-        calculatedProps.actions.unshift(rowData => ({
-          icon: calculatedProps.icons.Edit,
-          tooltip: localization.editTooltip,
-          hidden: calculatedProps.editable.isEditableHidden && calculatedProps.editable.isEditableHidden(rowData),
-          disabled: calculatedProps.editable.isEditable && !calculatedProps.editable.isEditable(rowData),
-          onClick: (e, rowData) => {
-            this.dataManager.changeRowEditing(rowData, "update");
-            this.setState({
-              ...this.dataManager.getRenderState(),
-              showAddRow: false
-            });
-          }
-        }));
-      }
       if (calculatedProps.editable.onRowDelete) {
         calculatedProps.actions.unshift(rowData => ({
           icon: calculatedProps.icons.Delete,
@@ -138,6 +123,21 @@ export default class MaterialTable extends React.Component {
           disabled: calculatedProps.editable.isDeletable && !calculatedProps.editable.isDeletable(rowData),
           onClick: (e, rowData) => {
             this.dataManager.changeRowEditing(rowData, "delete");
+            this.setState({
+              ...this.dataManager.getRenderState(),
+              showAddRow: false
+            });
+          }
+        }));
+      }
+      if (calculatedProps.editable.onRowUpdate) {
+        calculatedProps.actions.unshift(rowData => ({
+          icon: calculatedProps.icons.Edit,
+          tooltip: localization.editTooltip,
+          hidden: calculatedProps.editable.isEditableHidden && calculatedProps.editable.isEditableHidden(rowData),
+          disabled: calculatedProps.editable.isEditable && !calculatedProps.editable.isEditable(rowData),
+          onClick: (e, rowData) => {
+            this.dataManager.changeRowEditing(rowData, "update");
             this.setState({
               ...this.dataManager.getRenderState(),
               showAddRow: false
