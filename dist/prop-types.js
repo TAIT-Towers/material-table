@@ -137,7 +137,7 @@ var propTypes = {
     pageSize: _propTypes["default"].number,
     pageSizeOptions: _propTypes["default"].arrayOf(_propTypes["default"].number),
     paginationType: _propTypes["default"].oneOf(['normal', 'stepped']),
-    rowStyle: _propTypes["default"].oneOfType([_propTypes["default"].object, _propTypes["default"].func]),
+    rowStyle: _propTypes["default"].oneOfType([_propTypes["default"].object, _propTypes["default"].func, _propTypes["default"].func]),
     search: _propTypes["default"].bool,
     toolbarButtonAlignment: _propTypes["default"].oneOf(['left', 'right']),
     searchFieldAlignment: _propTypes["default"].oneOf(['left', 'right']),

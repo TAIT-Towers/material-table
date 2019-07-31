@@ -260,13 +260,13 @@ function (_React$Component) {
     }
   }, {
     key: "getStyle",
-    value: function getStyle(index) {
+    value: function getStyle(index, level) {
       var style = {
         transition: 'all ease 300ms'
       };
 
       if (typeof this.props.options.rowStyle === "function") {
-        style = (0, _objectSpread2["default"])({}, style, this.props.options.rowStyle(this.props.data, index));
+        style = (0, _objectSpread2["default"])({}, style, this.props.options.rowStyle(this.props.data, index, level));
       } else if (this.props.options.rowStyle) {
         style = (0, _objectSpread2["default"])({}, style, this.props.options.rowStyle);
       }
@@ -377,7 +377,7 @@ function (_React$Component) {
         selected: hasAnyEditingRow
       }, rowProps, {
         hover: onRowClick ? true : false,
-        style: this.getStyle(this.props.index),
+        style: this.getStyle(this.props.index, this.props.level),
         onClick: function onClick(event) {
           onRowClick && onRowClick(event, _this6.props.data, function (panelIndex) {
             var panel = detailPanel;
