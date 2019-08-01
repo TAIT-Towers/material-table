@@ -116,6 +116,7 @@ var propTypes = {
     addRowPosition: _propTypes["default"].oneOf(['first', 'last']),
     columnsButton: _propTypes["default"].bool,
     defaultExpanded: _propTypes["default"].bool,
+    expandedRows: _propTypes["default"].array,
     debounceInterval: _propTypes["default"].number,
     detailPanelType: _propTypes["default"].oneOf(['single', 'multiple']),
     doubleHorizontalScroll: _propTypes["default"].bool,

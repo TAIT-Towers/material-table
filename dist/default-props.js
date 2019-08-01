@@ -197,6 +197,7 @@ var defaultProps = {
     sorting: true,
     toolbar: true,
     defaultExpanded: false,
+    expandedRows: [],
     detailPanelColumnAlignment: 'left'
   },
   localization: {
