@@ -44,6 +44,7 @@ function () {
     (0, _defineProperty2["default"])(this, "treefiedDataLength", 0);
     (0, _defineProperty2["default"])(this, "treeDataMaxLevel", 0);
     (0, _defineProperty2["default"])(this, "defaultExpanded", false);
+    (0, _defineProperty2["default"])(this, "expandedRows", []);
     (0, _defineProperty2["default"])(this, "data", []);
     (0, _defineProperty2["default"])(this, "columns", []);
     (0, _defineProperty2["default"])(this, "filteredData", []);
@@ -304,6 +305,11 @@ function () {
     key: "setDefaultExpanded",
     value: function setDefaultExpanded(expanded) {
       this.defaultExpanded = expanded;
+    }
+  }, {
+    key: "setExpandedRows",
+    value: function setExpandedRows(rows) {
+      this.expandedRows = rows;
     }
   }, {
     key: "changeApplySearch",
@@ -783,7 +789,7 @@ function () {
         if (!_this6.searchText && !_this6.columns.some(function (columnDef) {
           return columnDef.tableData.filterValue;
         })) {
-          rowData.tableData.isTreeExpanded = _this6.defaultExpanded;
+          rowData.tableData.isTreeExpanded = _this6.defaultExpanded || _this6.expandedRows.indexOf(rowData.tableData.id) > -1;
         }
 
         var hasSearchMatchedChildren = rowData.tableData.isTreeExpanded;
